@@ -7,9 +7,9 @@ export default ({ data }) => (
   <StoreLayout
     {...data.md.frontmatter}
   >
-    <Img fluid={data.issueThreeSlideOne.childImageSharp.fluid} />
-    <Img fluid={data.issueThreeSlideTwo.childImageSharp.fluid} />
-    <Img fluid={data.issueThreeSlideThree.childImageSharp.fluid} />
+    {/*<Img fluid={data.issueThreeSlideOne.childImageSharp.fluid} />*/}
+    {/*<Img fluid={data.issueThreeSlideTwo.childImageSharp.fluid} />*/}
+    {/*<Img fluid={data.issueThreeSlideThree.childImageSharp.fluid} />*/}
   </StoreLayout>
 )
 
@@ -19,6 +19,7 @@ export const query = graphql`
       frontmatter {
         title
         price
+        description
         cover {
           childImageSharp {
             fluid(maxHeight: 900) {

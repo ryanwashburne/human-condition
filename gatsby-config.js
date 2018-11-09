@@ -4,6 +4,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-stripe-checkout',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     `gatsby-transformer-javascript-frontmatter`,

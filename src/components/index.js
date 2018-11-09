@@ -12,6 +12,7 @@ export { default as Question } from './Question'
 export { default as Quote } from './Quote'
 
 export { default as StoreLayout } from './StoreLayout'
+export { default as Checkout } from './Checkout'
 
 export { default as Text } from './Text'
 export { default as Link } from './Link'
