@@ -27,11 +27,15 @@ export default ({ data }) => (
         {/*</Slider>*/}
 
         {/*<Carousel autoplay slidesToShow={2} wrapAround>*/}
-          {/*<Img fixed={data.one.childImageSharp.fixed} />*/}
-          {/*<Img fixed={data.one.childImageSharp.fixed} />*/}
-          {/*<Img fixed={data.one.childImageSharp.fixed} />*/}
+          <Img fluid={data.images.edges[3].node.childImageSharp.fluid} />
+          <Img fluid={data.images.edges[2].node.childImageSharp.fluid} />
+          <Img fluid={data.images.edges[1].node.childImageSharp.fluid} />
         {/*</Carousel>*/}
       </div>
+    </Section>
+
+    <Section>
+      <IFrame src="https://open.spotify.com/embed/track/5DCjd4G5JeaAwkbqiGvgI5" />
     </Section>
   </ArticleLayout>
 )
@@ -42,12 +46,27 @@ export const query = graphql`
       frontmatter {
         title
         path
-        date
+        date(formatString: "MMMM Do, YYYY")
         caption
         type
+        description
         cover {
           childImageSharp {
             fluid(maxHeight: 1200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    images: allFile(
+      filter: {relativePath: { regex: "/interviews/mista-dc/" }},
+      sort: { fields: name }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxHeight: 900) {
               ...GatsbyImageSharpFluid
             }
           }

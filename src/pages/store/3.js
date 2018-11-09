@@ -7,9 +7,9 @@ export default ({ data }) => (
   <StoreLayout
     {...data.md.frontmatter}
   >
-    {/*<Img fluid={data.issueThreeSlideOne.childImageSharp.fluid} />*/}
-    {/*<Img fluid={data.issueThreeSlideTwo.childImageSharp.fluid} />*/}
-    {/*<Img fluid={data.issueThreeSlideThree.childImageSharp.fluid} />*/}
+    <Img fluid={data.images.edges[1].node.childImageSharp.fluid} />
+    <Img fluid={data.images.edges[2].node.childImageSharp.fluid} />
+    <Img fluid={data.images.edges[3].node.childImageSharp.fluid} />
   </StoreLayout>
 )
 
@@ -29,24 +29,17 @@ export const query = graphql`
         }
       }
     }
-    issueThreeSlideOne: file(relativePath: { eq: "store/issue3-1.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    issueThreeSlideTwo: file(relativePath: { eq: "store/issue3-2.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    issueThreeSlideThree: file(relativePath: { eq: "store/issue3-3.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid
+    images: allFile(
+      filter: {relativePath: { regex: "/store/issue3/" }},
+      sort: { fields: name }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxHeight: 900) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }

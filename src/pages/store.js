@@ -76,22 +76,22 @@ class StorePage extends React.Component {
         <Section yGutter>
           <div className="row">
             <div className="col-12 col-lg-6 mx-auto">
-              <Img fluid={recent.cover.childImageSharp.fluid} to={`/store/${recent.id}`} />
+              <Text align="center" variant="h6" paragraph>Current Issue</Text>
+              <Img fluid={recent.cover.childImageSharp.fluid} to={`/store/${recent.id}`} style={{ height: 500 }} />
             </div>
           </div>
         </Section>
 
         <Bar />
 
-        <Section yGutter>
-          <Text variant="subtitle1" gutterBottom>Previous Issues</Text>
+        <Section yGutter className="text-center text-lg-left">
+          <Text variant="subtitle1" paragraph>Previous Issues</Text>
           <div className="row">
             {issues.map((issue, i) => {
               if (i > 0) {
                 return (
                   <div key={i} className="col-12 col-lg-4">
-                    <Img fluid={issue.node.frontmatter.cover.childImageSharp.fluid} to={`/store/${issue.node.frontmatter.id}`} />
-                    <Text color="textSecondary" className="font-italic">{issue.node.frontmatter.title}</Text>
+                    <Img fluid={issue.node.frontmatter.cover.childImageSharp.fluid} to={`/store/${issue.node.frontmatter.id}`} style={{ height: 400 }} />
                   </div>
                 )
               }

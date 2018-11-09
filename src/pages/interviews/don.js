@@ -33,10 +33,10 @@ export default ({ data }) => (
 
     <ArticleImgs>
       <ArticleImg
-        src={data.one.childImageSharp.fixed}
+        fluid={data.images.edges[1].node.childImageSharp.fluid}
       />
       <ArticleImg
-        src={data.two.childImageSharp.fixed}
+        fluid={data.images.edges[2].node.childImageSharp.fluid}
       />
     </ArticleImgs>
 
@@ -58,10 +58,10 @@ export default ({ data }) => (
 
     <ArticleImgs>
       <ArticleImg
-        src={data.three.childImageSharp.fixed}
+        fluid={data.images.edges[3].node.childImageSharp.fluid}
       />
       <ArticleImg
-        src={data.four.childImageSharp.fixed}
+        fluid={data.images.edges[4].node.childImageSharp.fluid}
       />
     </ArticleImgs>
 
@@ -95,9 +95,10 @@ export const query = graphql`
       frontmatter {
         title
         path
-        date
+        date(formatString: "MMMM Do, YYYY")
         caption
         type
+        description
         cover {
           childImageSharp {
             fluid(maxHeight: 1200) {
@@ -107,31 +108,17 @@ export const query = graphql`
         }
       }
     }
-    one: file(relativePath: { eq: "interviews/don/DSC_6740.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    two: file(relativePath: { eq: "interviews/don/DSC_6734.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    three: file(relativePath: { eq: "interviews/don/DSC_6823.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    four: file(relativePath: { eq: "interviews/don/DSC_6720.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
+    images: allFile(
+      filter: {relativePath: { regex: "/interviews/don/" }},
+      sort: { fields: name }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxHeight: 900) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }

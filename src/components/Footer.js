@@ -8,10 +8,10 @@ class Footer extends React.Component {
     return (
       <div className="pt-5">
         <hr style={{ width: '40%', borderColor: '#1d191b' }} />
-        <Section fluid className="pb-5">
+        <Section fluid className="pb-2">
           <div className="row">
-            <div className="col-6 col-lg-4 text-center text-lg-left pl-auto pl-lg-5">
-              <Text style={{ fontFamily: 'Human' }} variant="h6"><Link to="/">HUMAN CONDITION</Link></Text>
+            <div className="col-6 col-lg-4 pl-auto pl-lg-5">
+              <Text style={{ fontFamily: 'Human' }} variant="subtitle1"><Link to="/">HUMAN CONDITION</Link></Text>
             </div>
             <div className="d-none d-lg-block col-lg-4 text-center">
               <Text className="font-italic">Human Condition &copy;{new Date().getFullYear()}</Text>

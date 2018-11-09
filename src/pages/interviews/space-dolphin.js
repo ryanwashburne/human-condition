@@ -23,11 +23,11 @@ export default ({ data }) => (
       </Answer>
     </Section>
 
-    {/*<ArticleImgs>*/}
-      {/*<ArticleImg*/}
-        {/*src={getSrc(key, '2.png')}*/}
-      {/*/>*/}
-    {/*</ArticleImgs>*/}
+    <ArticleImgs>
+      <ArticleImg
+        fluid={data.images.edges[1].node.childImageSharp.fluid}
+      />
+    </ArticleImgs>
 
     <Section>
       <Question>
@@ -52,12 +52,11 @@ export default ({ data }) => (
       </Answer>
     </Section>
 
-    {/*<ArticleImgs>*/}
-      {/*<ArticleImg*/}
-        {/*src={getSrc(key, '3.png')}*/}
-        {/*photographer="Ryan Washburne"*/}
-      {/*/>*/}
-    {/*</ArticleImgs>*/}
+    <ArticleImgs>
+      <ArticleImg
+        fluid={data.images.edges[2].node.childImageSharp.fluid}
+      />
+    </ArticleImgs>
 
     <Section>
       <Question>When’s the tape dropping?</Question>
@@ -84,12 +83,12 @@ export default ({ data }) => (
       </Answer>
     </Section>
 
-    {/*<ArticleImgs>*/}
-      {/*<ArticleImg*/}
-        {/*src={getSrc(key, '4.png')}*/}
-        {/*photographer="Ryan Washburne"*/}
-      {/*/>*/}
-    {/*</ArticleImgs>*/}
+    <ArticleImgs>
+      <ArticleImg
+        fluid={data.images.edges[3].node.childImageSharp.fluid}
+        horizontal
+      />
+    </ArticleImgs>
 
     <Section>
       <Question>Who would you say are your biggest musical influences?</Question>
@@ -115,12 +114,27 @@ export const query = graphql`
       frontmatter {
         title
         path
-        date
+        date(formatString: "MMMM Do, YYYY")
         caption
         type
+        description
         cover {
           childImageSharp {
             fluid(maxHeight: 1200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    }
+    images: allFile(
+      filter: {relativePath: { regex: "/interviews/space-dolphin/" }},
+      sort: { fields: name }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxHeight: 900) {
               ...GatsbyImageSharpFluid
             }
           }

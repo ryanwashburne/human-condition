@@ -19,10 +19,10 @@ export default ({ data }) => (
 
     <ArticleImgs>
       <ArticleImg
-        src={data.one.childImageSharp.fixed}
+        fluid={data.images.edges[1].node.childImageSharp.fluid}
       />
       <ArticleImg
-        src={data.two.childImageSharp.fixed}
+        fluid={data.images.edges[2].node.childImageSharp.fluid}
       />
     </ArticleImgs>
 
@@ -34,10 +34,10 @@ export default ({ data }) => (
 
     <ArticleImgs>
       <ArticleImg
-        src={data.three.childImageSharp.fixed}
+        fluid={data.images.edges[3].node.childImageSharp.fluid}
       />
       <ArticleImg
-        src={data.four.childImageSharp.fixed}
+        fluid={data.images.edges[4].node.childImageSharp.fluid}
       />
     </ArticleImgs>
 
@@ -49,16 +49,17 @@ export default ({ data }) => (
 
     <ArticleImgs>
       <ArticleImg
-        src={data.five.childImageSharp.fixed}
+        fluid={data.images.edges[5].node.childImageSharp.fluid}
       />
       <ArticleImg
-        src={data.six.childImageSharp.fixed}
+        fluid={data.images.edges[6].node.childImageSharp.fluid}
       />
     </ArticleImgs>
 
     <ArticleImgs>
       <ArticleImg
-        src={data.seven.childImageSharp.fixed}
+        fluid={data.images.edges[7].node.childImageSharp.fluid}
+        horizontal
       />
     </ArticleImgs>
   </ArticleLayout>
@@ -70,9 +71,10 @@ export const query = graphql`
       frontmatter {
         title
         path
-        date
+        date(formatString: "MMMM Do, YYYY")
         caption
         type
+        description
         cover {
           childImageSharp {
             fluid(maxHeight: 1200) {
@@ -82,59 +84,17 @@ export const query = graphql`
         }
       }
     }
-    one: file(relativePath: { eq: "interviews/deme/2.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    two: file(relativePath: { eq: "interviews/deme/3.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    two: file(relativePath: { eq: "interviews/deme/3.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    three: file(relativePath: { eq: "interviews/deme/4.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    four: file(relativePath: { eq: "interviews/deme/5.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    five: file(relativePath: { eq: "interviews/deme/6.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    six: file(relativePath: { eq: "interviews/deme/7.jpg" }) {
-      childImageSharp {
-        fixed(height: 800) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-    seven: file(relativePath: { eq: "interviews/deme/8.jpg" }) {
-      childImageSharp {
-        fixed(height: 500) {
-          ...GatsbyImageSharpFixed
+    images: allFile(
+      filter: {relativePath: { regex: "/interviews/deme/" }},
+      sort: { fields: name }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxHeight: 900) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }

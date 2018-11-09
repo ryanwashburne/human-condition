@@ -4,7 +4,7 @@ import { AppBar, Toolbar, ButtonBase, Drawer, List, ListItem } from '@material-u
 import MenuIcon from '@material-ui/icons/Menu'
 import { Text, Link } from './'
 
-const HEIGHT = 65
+const HEIGHT = 50
 
 class Header extends React.Component {
   state = {
@@ -21,11 +21,11 @@ class Header extends React.Component {
     return (
       <div>
         <AppBar position="fixed" color="inherit" style={{ height: HEIGHT, boxShadow: 'none', backgroundColor: '#f8f6ed' }}>
-          <Toolbar>
+          <Toolbar variant="dense" style={{ height: HEIGHT }}>
             <div className="container-fluid">
               <div className="row">
                 <div className="col-10 col-lg-6 d-flex align-items-center">
-                  <Text style={{ fontFamily: 'Human' }} variant="h4" color="textPrimary"><Link to="/">HUMAN CONDITION</Link></Text>
+                  <Text style={{ fontFamily: 'Human' }} variant="h5" color="textPrimary"><Link to="/">HUMAN CONDITION</Link></Text>
                 </div>
                 <div className="col-6 d-none d-lg-flex align-items-center justify-content-end">
                   <Text><Link to="/editorial">Editorial</Link></Text>

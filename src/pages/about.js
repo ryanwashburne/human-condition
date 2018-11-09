@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Section, Img, Text, Bar } from '../components'
+import { Layout, Link, Section, Img, Text, Bar } from '../components'
 
 const About = ({ data }) => (
   <Layout>
@@ -13,7 +13,8 @@ const About = ({ data }) => (
         <div className="col-12 col-lg-6">
           <Text variant="subtitle1" className="font-italic" paragraph>Who are we?</Text>
           <Text paragraph>Human Condition is an independent magazine dedicated to providing a platform for emerging artists in Seattle and beyond. Human Condition was founded in 2017 centered around the principals of community empowerment, sharing underrepresented voices, and fortifying the arts in Seattle. </Text>
-          <Text>Through publishing a biannual magazine, curating events, and developing a web/mobile platform for artists, Human Condition continues to bring people together, and share the thoughts and work of talented local artists. </Text>
+          <Text paragraph>Through publishing a biannual magazine, curating events, and developing a web/mobile platform for artists, Human Condition continues to bring people together, and share the thoughts and work of talented local artists. </Text>
+          <Text className="font-weight-bold">Contact // <Link href="mailto:humanconditionmag@gmail.com">humanconditionmag@gmail.com</Link></Text>
         </div>
       </div>
     </Section>
