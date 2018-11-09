@@ -20,6 +20,7 @@ export const query = graphql`
         title
         price
         description
+        sku
         cover {
           childImageSharp {
             fluid(maxHeight: 900) {

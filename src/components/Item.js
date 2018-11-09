@@ -8,7 +8,7 @@ export default ({ article, src, gutterBottom }) => (
       <Img fluid={article.cover.childImageSharp.fluid} style={{ height: 250 }} className="w-100" />
     </Link>
     <Text className="font-italic mt-2">{article.type}</Text>
-    <Text variant="h6" className="text-uppercase" color="textPrimary">
+    <Text variant="h5" className="text-uppercase font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>
       <Link to={article.path}>
         {article.title}
       </Link>

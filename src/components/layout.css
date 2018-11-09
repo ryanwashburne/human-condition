@@ -13,7 +13,7 @@ html, body {
   content: '' !important;
 }
 .sticky-top {
-  top: 65px;
+  top: 50px;
 }
 .pointer {
   cursor: pointer;

@@ -53,7 +53,7 @@ class Header extends React.Component {
                 About
               </ListItem>
             </Link>
-            <Link to="/Store">
+            <Link to="/store">
               <ListItem button>
                 Store
               </ListItem>

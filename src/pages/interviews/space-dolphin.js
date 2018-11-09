@@ -118,6 +118,9 @@ export const query = graphql`
         caption
         type
         description
+        interview
+        photography
+        videography
         cover {
           childImageSharp {
             fluid(maxHeight: 1200) {

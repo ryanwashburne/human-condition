@@ -39,12 +39,12 @@ const IndexPage = ({ data }) => {
               <Img fluid={recent.cover.childImageSharp.fluid} />
             </Link>
             <Text className="font-italic mt-2">{recent.type}</Text>
-            <Text variant="h2" className="text-uppercase" color="textPrimary">
+            <Text variant="h2" className="text-uppercase font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>
               <Link to={recent.path}>
                 {recent.title}
               </Link>
             </Text>
-            <Text variant="subtitle1">
+            <Text variant="subtitle1" style={{ fontFamily: 'Times New Roman' }}>
               {recent.caption}
             </Text>
           </div>
@@ -74,7 +74,7 @@ const IndexPage = ({ data }) => {
           <Text variant="h6" gutterBottom>
             <Link to={`/store/${recentIssue.id}`}>{recentIssue.title}</Link>
           </Text>
-          <Text color="textSecondary">
+          <Text color="textSecondary" paragraph>
             {recentIssue.description}
           </Text>
         </div>

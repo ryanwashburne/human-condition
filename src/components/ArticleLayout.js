@@ -36,7 +36,7 @@ export default ({ title, caption, src, interview, date, photography, videography
 
           <div className="col-12 col-lg-7 p-0">
             <div className="d-none d-lg-block">
-              <Img fluid={cover.childImageSharp.fluid} style={{ height: 'calc(100vh - 65px)' }} className="w-100" />
+              <Img fluid={cover.childImageSharp.fluid} style={{ height: 'calc(100vh - 50px)' }} className="w-100" />
             </div>
             <div className="d-block d-lg-none">
               <Img fluid={cover.childImageSharp.fluid} />

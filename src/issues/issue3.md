@@ -5,4 +5,5 @@ description: "Issue three of Human Condition magazine focuses on the theme, “T
 cover: "../images/store/issue3/1.jpg"
 date: "2018-11-09"
 id: "3"
+sku: "sku_DwcNx5QNevVSti"
 ---

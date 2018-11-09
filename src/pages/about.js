@@ -24,22 +24,22 @@ const About = ({ data }) => (
     <Section yGutter>
       <div className="row text-center text-lg-left">
         <div className="col-12 mb-4">
-          <Text variant="subheading" className="font-italic" color="textSecondary">Team</Text>
+          <Text variant="subtitle1" className="font-italic" color="textSecondary">Team</Text>
         </div>
         <div className="col-12 col-lg-6 mb-4">
-          <Text variant="title">Raphaël Gaultier</Text>
+          <Text variant="h6">Raphaël Gaultier</Text>
           <Text>Founder</Text>
         </div>
         <div className="col-12 col-lg-6 mb-4">
-          <Text variant="title">Jen Louie</Text>
+          <Text variant="h6">Jen Louie</Text>
           <Text>Editor in Chief</Text>
         </div>
         <div className="col-12 col-lg-6 mb-4">
-          <Text variant="title">Pari Gabriel</Text>
+          <Text variant="h6">Pari Gabriel</Text>
           <Text>Lead Designer</Text>
         </div>
         <div className="col-12 col-lg-6 mb-4">
-          <Text variant="title">Grace Novacek</Text>
+          <Text variant="h6">Grace Novacek</Text>
           <Text>Writer</Text>
         </div>
       </div>
@@ -50,15 +50,19 @@ const About = ({ data }) => (
     <Section yGutter>
       <div className="row text-center text-lg-left">
         <div className="col-12 mb-4">
-          <Text variant="subheading" className="font-italic" color="textSecondary">Stockists</Text>
+          <Text variant="subtitle1" className="font-italic" color="textSecondary">Stockists</Text>
         </div>
         <div className="col-12 col-lg-6 mb-4">
-          <Text variant="title">Likelihood</Text>
+          <Text variant="h6">Likelihood</Text>
           <Text>1101 E Union St, Seattle, WA 98122</Text>
         </div>
         <div className="col-12 col-lg-6 mb-4">
-          <Text variant="title">Can’t Blame the Youth</Text>
+          <Text variant="h6">Can’t Blame the Youth</Text>
           <Text>674 S King St, Seattle, WA 98104</Text>
+        </div>
+        <div className="col-12 col-lg-6 mb-4">
+          <Text variant="h6">The Elliott Bay Book Company</Text>
+          <Text>1521 10th Ave, Seattle, WA 98122</Text>
         </div>
       </div>
     </Section>
