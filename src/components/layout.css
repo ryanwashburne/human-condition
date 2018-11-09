@@ -1,0 +1,20 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.7px;
+}
+@font-face {
+  font-family: Human;
+  src: url('./Kode.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+.slick-prev:before, .slick-next:before  {
+  content: '' !important;
+}
+.sticky-top {
+  top: 65px;
+}
+.pointer {
+  cursor: pointer;
+}
