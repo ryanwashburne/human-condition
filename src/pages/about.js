@@ -26,21 +26,33 @@ const About = ({ data }) => (
         <div className="col-12 mb-4">
           <Text variant="subtitle1" className="font-italic" color="textSecondary">Team</Text>
         </div>
-        <div className="col-12 col-lg-6 mb-4">
-          <Text variant="h6">Raphaël Gaultier</Text>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Raphaël Gaultier</Text>
           <Text>Founder</Text>
         </div>
-        <div className="col-12 col-lg-6 mb-4">
-          <Text variant="h6">Jen Louie</Text>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Jen Louie</Text>
           <Text>Editor in Chief</Text>
         </div>
-        <div className="col-12 col-lg-6 mb-4">
-          <Text variant="h6">Pari Gabriel</Text>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Pari Gabriel</Text>
           <Text>Lead Designer</Text>
         </div>
-        <div className="col-12 col-lg-6 mb-4">
-          <Text variant="h6">Grace Novacek</Text>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Grace Novacek</Text>
           <Text>Writer</Text>
+        </div>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Negin Shahbazi</Text>
+          <Text>Videographer</Text>
+        </div>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Liam Brozik</Text>
+          <Text>Videographer</Text>
+        </div>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Ryan Washburne</Text>
+          <Text>Web Developer</Text>
         </div>
       </div>
     </Section>
@@ -52,16 +64,16 @@ const About = ({ data }) => (
         <div className="col-12 mb-4">
           <Text variant="subtitle1" className="font-italic" color="textSecondary">Stockists</Text>
         </div>
-        <div className="col-12 col-lg-6 mb-4">
-          <Text variant="h6">Likelihood</Text>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Likelihood</Text>
           <Text>1101 E Union St, Seattle, WA 98122</Text>
         </div>
-        <div className="col-12 col-lg-6 mb-4">
-          <Text variant="h6">Can’t Blame the Youth</Text>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Can’t Blame the Youth</Text>
           <Text>674 S King St, Seattle, WA 98104</Text>
         </div>
-        <div className="col-12 col-lg-6 mb-4">
-          <Text variant="h6">The Elliott Bay Book Company</Text>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>The Elliott Bay Book Company</Text>
           <Text>1521 10th Ave, Seattle, WA 98122</Text>
         </div>
       </div>

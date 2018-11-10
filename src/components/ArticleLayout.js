@@ -25,8 +25,8 @@ export default ({ title, caption, src, interview, date, photography, videography
             <Section yGutter>
               <Text variant="h4" className="text-uppercase">{title}</Text>
               <Text variant="subtitle1" gutterBottom>{caption}</Text>
-              <Text gutterBottom className="font-italic">{date}</Text>
-              <div>
+              <Text className="font-italic">{date}</Text>
+              <div className="mt-4">
                 {interview && <Text className="font-italic" gutterBottom>Interview: {interview}</Text>}
                 {photography && <Text className="font-italic" gutterBottom>Photography: {photography}</Text>}
                 {videography && <Text className="font-italic" gutterBottom>Videography: {videography}</Text>}

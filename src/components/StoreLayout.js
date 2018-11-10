@@ -11,7 +11,7 @@ export default ({ title, price, description, cover, sku, children }) => (
             <Text variant="h4">{title}</Text>
             {parseInt(price) > 0 &&
               <div className="d-flex">
-                <Text variant="h6" gutterBottom>${parseInt(price) + 6}</Text>
+                <Text variant="h6" gutterBottom>${parseInt(price)}</Text>
                 <Text style={{ paddingTop: 4, fontSize: 14 }} className="flex-grow-1">*</Text>
               </div>
             }
@@ -23,7 +23,7 @@ export default ({ title, price, description, cover, sku, children }) => (
                   name={title}
                   sku={sku}
                 />
-                <Text color="textSecondary" className="font-italic pt-1">*Shipping included</Text>
+                <Text color="textSecondary" className="font-italic pt-1">* $6.00 shipping</Text>
               </div>
             }
             {parseInt(price) === 0 &&

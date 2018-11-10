@@ -8,7 +8,7 @@ const Editorial = ({ data }) => (
     <Section yGutter>
       <div className="row">
         <div className="col-12 col-lg-5 mx-auto">
-          <Text variant="h6" align="center" gutterBottom color="textPrimary">Editorial Picks</Text>
+          <Text variant="h5" align="center" gutterBottom className="font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>Editorial Picks</Text>
           <Text align="justify" color="textSecondary">A collection of articles, interviews, photos, and more brought to you by the Human Condition community.</Text>
         </div>
       </div>
