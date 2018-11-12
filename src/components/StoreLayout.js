@@ -35,7 +35,7 @@ export default ({ title, price, description, cover, sku, children }) => (
           <Img fluid={cover.childImageSharp.fluid} />
         </div>
       </div>
-      {/*{children}*/}
+      {children}
     </Section>
   </Layout>
 )

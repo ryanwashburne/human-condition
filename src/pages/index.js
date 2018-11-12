@@ -72,7 +72,7 @@ const IndexPage = ({ data }) => {
       <div className="row">
         <div className="col-12 col-lg-6">
           <Text variant="h6" gutterBottom>
-            <Link to={`/store/${recentIssue.id}`}>{recentIssue.title}</Link>
+            <Link to={`/issues/${recentIssue.id}`}>{recentIssue.title}</Link>
           </Text>
           <Text color="textSecondary" paragraph>
             {recentIssue.description}

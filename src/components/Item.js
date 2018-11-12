@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Img, Link, Text, Bar } from './'
+import { Img, Link, Text } from './'
 
 export default ({ article, src, gutterBottom }) => (
   <div className={gutterBottom ? 'mb-5' : ''}>

@@ -30,7 +30,7 @@ class Header extends React.Component {
                 <div className="col-6 d-none d-lg-flex align-items-center justify-content-end">
                   <Text><Link to="/editorial">Editorial</Link></Text>
                   <Text className="ml-4"><Link to="/about">About</Link></Text>
-                  <Text className="ml-4"><Link to="/store">Store</Link></Text>
+                  <Text className="ml-4"><Link to="/issues">Issues</Link></Text>
                 </div>
                 <div className="col-2 d-flex d-lg-none justify-content-end">
                   <ButtonBase variant="fab" onClick={this.handleOpen}>
@@ -53,9 +53,9 @@ class Header extends React.Component {
                 About
               </ListItem>
             </Link>
-            <Link to="/store">
+            <Link to="/issues">
               <ListItem button>
-                Store
+                Issues
               </ListItem>
             </Link>
           </List>
