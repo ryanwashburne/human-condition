@@ -79,7 +79,7 @@ const IndexPage = ({ data }) => {
           </Text>
         </div>
         <div className="col-12 col-lg-6">
-          <Img fluid={recentIssue.cover.childImageSharp.fluid} className="w-100" style={{ height: 400 }} to={`/store/${recentIssue.id}`} />
+          <Img fluid={recentIssue.cover.childImageSharp.fluid} className="w-100" style={{ height: 400 }} to={`/issues/${recentIssue.id}`} />
         </div>
       </div>
     </Section>
