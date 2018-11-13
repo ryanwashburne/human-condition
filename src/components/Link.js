@@ -1,6 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import { Link as GatsbyLink } from 'gatsby'
 import { withStyles } from '@material-ui/core/styles'
 
@@ -24,7 +25,7 @@ const styles = (theme) => ({
 const Link = ({ classes, className, href, children, ...props }) => {
   if (href) {
     return (
-      <a href={href} {...props} className={classnames(classes.link, classes.hover, className)}>{children}</a>
+      <OutboundLink href={href} className={classnames(classes.link, classes.hover, className)} {...props} >{children}</OutboundLink>
     )
   }
   return (

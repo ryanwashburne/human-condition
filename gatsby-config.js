@@ -3,6 +3,18 @@ module.exports = {
     title: 'HUMAN CONDITION',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-107484926-1",
+        // Puts tracking script in the head instead of the body
+        head: false,
+        // Setting this parameter is optional
+        anonymize: true,
+        // Setting this parameter is also optional
+        respectDNT: true,
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-stripe-checkout',
     'gatsby-transformer-sharp',
