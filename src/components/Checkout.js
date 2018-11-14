@@ -2,7 +2,8 @@ import React from 'react'
 
 import { Button } from './'
 
-const api = 'https://jn9d2njefc.execute-api.us-east-1.amazonaws.com/dev'
+const api = process.env.NODE_ENV === 'development' ? 'http://localhost:9000' : 'https://humanconditionmag.com/.netlify/functions'
+const key = process.env.NODE_ENV === 'development' ? 'pk_test_Y5hzahRkXx9K3ICjEAILkbtI' : 'pk_live_3PrG0lEhyYW5wV1a7Xkr491G'
 
 // Below is where the checkout component is defined.
 // It has several functions and some default state variables.
@@ -21,7 +22,7 @@ class Checkout extends React.Component {
     this.stripeHandler = window.StripeCheckout.configure({
       // You’ll need to add your own Stripe public key to the `checkout.js` file.
       // key: 'pk_test_STRIPE_PUBLISHABLE_KEY',
-      key: 'pk_live_3PrG0lEhyYW5wV1a7Xkr491G',
+      key: key,
       closed: () => {
         this.resetButton()
       },
@@ -41,7 +42,7 @@ class Checkout extends React.Component {
       zipCode: true,
       allowRememberMe: false,
       token: (token, args) => {
-        fetch(api + '/charges', { // Backend API url
+        fetch(api + '/createcharge', { // Backend API url
           method: 'POST',
           body: JSON.stringify({
             token,

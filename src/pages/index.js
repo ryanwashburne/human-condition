@@ -28,63 +28,64 @@ const IndexPage = ({ data }) => {
   const recent = data.recent.edges[0].node.frontmatter
   const recentIssue = data.recentIssue.edges[0].node.frontmatter
   return (
-  <Layout>
-    <Slider data={data} />
+    <Layout>
+      <Slider data={data} />
 
-    <Section yGutter>
-      <div className="row">
-        <div className="col-12 col-lg-7">
-          <div className="d-none d-lg-block sticky-top">
-            <Link to={recent.path}>
-              <Img fluid={recent.cover.childImageSharp.fluid} />
-            </Link>
-            <Text className="font-italic mt-2">{recent.type}</Text>
-            <Text variant="h2" className="text-uppercase font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>
+      <Section yGutter>
+        <div className="row">
+          <div className="col-12 col-lg-7">
+            <div className="d-none d-lg-block sticky-top">
               <Link to={recent.path}>
-                {recent.title}
+                <Img fluid={recent.cover.childImageSharp.fluid} />
               </Link>
-            </Text>
-            <Text variant="subtitle1" style={{ fontFamily: 'Times New Roman' }}>
-              {recent.caption}
-            </Text>
+              <Text className="font-italic mt-2">{recent.type}</Text>
+              <Text variant="h2" className="text-uppercase font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>
+                <Link to={recent.path}>
+                  {recent.title}
+                </Link>
+              </Text>
+              <Text variant="subtitle1" style={{ fontFamily: 'Times New Roman' }}>
+                {recent.caption}
+              </Text>
+            </div>
+          </div>
+          <div className="col-12 col-lg-5">
+            <div className="d-block d-lg-none">
+              <Item article={recent} gutterBottom />
+            </div>
+            {interviews.map((interview, i) => {
+              console.log(interview)
+              if (i > 0) {
+                return (
+                  <Item key={i} article={interview.node.frontmatter} gutterBottom={i < interviews.length - 1} />
+                )
+              }
+              return null
+            })}
           </div>
         </div>
-        <div className="col-12 col-lg-5">
-          <div className="d-block d-lg-none">
-            <Item article={recent} gutterBottom />
+      </Section>
+
+      <Bar />
+
+      <Section yGutter>
+        <div className="row">
+          <div className="col-12 col-lg-6">
+            <Text variant="h6" gutterBottom>
+              <Link to={`/issues/${recentIssue.id}`}>{recentIssue.title}</Link>
+            </Text>
+            <Text color="textSecondary" paragraph>
+              {recentIssue.description}
+            </Text>
           </div>
-          {interviews.map((interview, i) => {
-            console.log(interview)
-            if (i > 0) {
-              return (
-                <Item key={i} article={interview.node.frontmatter} gutterBottom={i < interviews.length - 1} />
-              )
-            }
-            return null
-          })}
+          <div className="col-12 col-lg-6">
+            <Img fluid={recentIssue.cover.childImageSharp.fluid} className="w-100" style={{ height: 400 }} to={`/issues/${recentIssue.id}`} />
+          </div>
         </div>
-      </div>
-    </Section>
-
-    <Bar />
-
-    <Section yGutter>
-      <div className="row">
-        <div className="col-12 col-lg-6">
-          <Text variant="h6" gutterBottom>
-            <Link to={`/issues/${recentIssue.id}`}>{recentIssue.title}</Link>
-          </Text>
-          <Text color="textSecondary" paragraph>
-            {recentIssue.description}
-          </Text>
-        </div>
-        <div className="col-12 col-lg-6">
-          <Img fluid={recentIssue.cover.childImageSharp.fluid} className="w-100" style={{ height: 400 }} to={`/issues/${recentIssue.id}`} />
-        </div>
-      </div>
-    </Section>
-  </Layout>
-)}
+      </Section>
+    </Layout>
+  )
+}
 
 export default IndexPage
 

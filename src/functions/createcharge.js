@@ -1,4 +1,4 @@
-const key = process.env.STRIPE_SECRET_KEY;
+const key = process.env.NODE_ENV === 'development' ? process.env.STRIPE_SECRET_KEY_TEST : process.env.STRIPE_SECRET_KEY;
 const stripe = require('stripe')(key);
 
 module.exports.handler = (event, context, callback) => {
