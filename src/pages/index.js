@@ -17,7 +17,9 @@ class Slider extends React.Component {
     const { data } = this.props
     return (
       <div>
-        <Img fluid={data[`Slider${(this.state.count % 5) + 1}`].childImageSharp.fluid} className="w-100" style={{ height: 'calc(20vw + 100px)' }} />
+        {data.images.edges.map((img, i) => (
+          <Img key={i} fluid={img.node.childImageSharp.fluid} className={`w-100 ${this.state.count % 5 === i ? 'd-block' : 'd-none'}`} style={{ height: 'calc(20vw + 100px)' }} />
+        ))}
       </div>
     )
   }
@@ -29,6 +31,7 @@ const IndexPage = ({ data }) => {
   const recentIssue = data.recentIssue.edges[0].node.frontmatter
   return (
     <Layout>
+
       <Slider data={data} />
 
       <Section yGutter>
@@ -54,7 +57,6 @@ const IndexPage = ({ data }) => {
               <Item article={recent} gutterBottom />
             </div>
             {interviews.map((interview, i) => {
-              console.log(interview)
               if (i > 0) {
                 return (
                   <Item key={i} article={interview.node.frontmatter} gutterBottom={i < interviews.length - 1} />
@@ -161,40 +163,19 @@ export const query = graphql`
         }
       }
     }
-    Slider1: file(relativePath: { eq: "home/1.jpg" }) {
-      childImageSharp {
-        fluid(maxHeight: 600) {
-          ...GatsbyImageSharpFluid
+    images: allFile(
+      filter: {relativePath: { regex: "/home/" }},
+      sort: { fields: name }
+    ) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxHeight: 900) {
+              ...GatsbyImageSharpFluid
+            }
+          }
         }
       }
     }
-    Slider2: file(relativePath: { eq: "home/2.jpg" }) {
-      childImageSharp {
-        fluid(maxHeight: 600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    Slider3: file(relativePath: { eq: "home/3.jpg" }) {
-      childImageSharp {
-        fluid(maxHeight: 600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    Slider4: file(relativePath: { eq: "home/4.jpg" }) {
-      childImageSharp {
-        fluid(maxHeight: 600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    Slider5: file(relativePath: { eq: "home/5.jpg" }) {
-      childImageSharp {
-        fluid(maxHeight: 600) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  } 
+  }
 `
