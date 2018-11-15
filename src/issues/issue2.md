@@ -6,4 +6,5 @@ cover: "../images/store/issue2/1.png"
 date: "2018-01-01"
 id: "2"
 sku: "sku_CsdtZonRRKDD4U"
+sku_test: "sku_Cq2FvlIon59oqv"
 ---

@@ -1,12 +1,18 @@
-const key = process.env.NODE_ENV === 'development' ? process.env.STRIPE_SECRET_KEY_TEST : process.env.STRIPE_SECRET_KEY;
+const dotenv = require("dotenv");
+
+if (process.env.ENVIRONMENT !== "production") {
+  dotenv.config();
+}
+
+const key = process.env.ENVIRONMENT !== 'production' ? process.env.STRIPE_SECRET_KEY_TEST : process.env.STRIPE_SECRET_KEY;
 const stripe = require('stripe')(key);
 
-module.exports.handler = (event, context, callback) => {
-  console.log('createCharge');
-  console.log(event);
-  const requestBody = JSON.parse(event.body);
-  console.log(requestBody);
+console.log('-----');
+console.log(key);
+console.log('-----');
 
+module.exports.handler = (event, context, callback) => {
+  const requestBody = JSON.parse(event.body);
   const token = requestBody.token;
   const args = requestBody.args;
   const products = requestBody.products;

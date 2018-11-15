@@ -6,6 +6,7 @@ import { StoreLayout } from '../../components'
 export default ({ data }) => (
   <StoreLayout
     {...data.md.frontmatter}
+    sku={process.env.NODE_ENV === 'development' ? data.md.frontmatter.sku_test : data.md.frontmatter.sku}
   />
 )
 
@@ -17,6 +18,7 @@ export const query = graphql`
         price
         description
         sku
+        sku_test
         cover {
           childImageSharp {
             fluid(maxHeight: 900) {

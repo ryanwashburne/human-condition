@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Text, Answer } from './'
+import { Text } from './'
 
 export default ({ children }) => (
   <div className="col-12 col-lg-8 mx-auto">
