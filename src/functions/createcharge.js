@@ -1,5 +1,7 @@
 const dotenv = require("dotenv");
-dotenv.config();
+if (process.env.ENVIRONMENT !== 'production') {
+  dotenv.config();
+}
 
 const key = process.env.ENVIRONMENT !== 'production' ? process.env.STRIPE_SECRET_KEY_TEST : process.env.STRIPE_SECRET_KEY;
 const stripe = require('stripe')(key);
