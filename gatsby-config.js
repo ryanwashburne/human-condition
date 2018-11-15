@@ -1,8 +1,3 @@
-const dotenv = require("dotenv");
-dotenv.config();
-
-const { spaceId, accessToken } = process.env;
-
 module.exports = {
   siteMetadata: {
     title: 'HUMAN CONDITION',
@@ -11,8 +6,8 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        spaceId,
-        accessToken
+        spaceId: `mcc9em3lbxey`,
+        accessToken: `5cb3210278629e6dad812ff7256f41287f7a25830fc0e3992df8b091c429fbbe`
       }
     },
     {
