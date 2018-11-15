@@ -1,8 +1,5 @@
 const dotenv = require("dotenv");
-
-if (process.env.ENVIRONMENT !== "production") {
-  dotenv.config();
-}
+dotenv.config();
 
 const { spaceId, accessToken } = process.env;
 
