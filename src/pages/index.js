@@ -101,7 +101,7 @@ export const query = graphql`
             }
           }
           cover {
-            fluid(maxHeight: 800) {
+            fluid(maxWidth: 600) {
               ...GatsbyContentfulFluid
             }
           }
