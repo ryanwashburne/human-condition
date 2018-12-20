@@ -18,7 +18,7 @@ export default ({ article, gutterBottom }) => (
     </Text>
 
     {gutterBottom &&
-      <hr style={{ width: '80%', marginRight: '100%', borderColor: '#1d191b' }}/>
+      <hr className="w-50" style={{ float: 'left', borderColor: '#1d191b' }}/>
     }
   </div>
 )

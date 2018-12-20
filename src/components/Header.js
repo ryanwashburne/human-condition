@@ -1,4 +1,6 @@
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import { AppBar, Toolbar, ButtonBase, Drawer, List, ListItem } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -25,7 +27,25 @@ class Header extends React.Component {
             <div className="container-fluid">
               <div className="row">
                 <div className="col-10 col-lg-6 d-flex align-items-center">
-                  <Text style={{ fontFamily: 'Human' }} variant="h5" color="textPrimary"><Link to="/">HUMAN CONDITION</Link></Text>
+                  {/* <Text style={{ fontFamily: 'Human' }} variant="h5" color="textPrimary"><Link to="/">HUMAN CONDITION</Link></Text> */}
+                  <StaticQuery
+                    query={graphql`
+                      query {
+                        file(relativePath: { eq: "web-logo.png" }) {
+                          childImageSharp {
+                            fixed(height: 30) {
+                              ...GatsbyImageSharpFixed
+                            }
+                          }
+                        }
+                      }
+                    `}
+                    render={data => (
+                      <Link to="/">
+                        <Img fixed={data.file.childImageSharp.fixed} style={{ marginTop: 5, marginLeft: -10 }} />
+                      </Link>
+                    )}
+                  />
                 </div>
                 <div className="col-6 d-none d-lg-flex align-items-center justify-content-end">
                   <Text><Link to="/articles">Articles</Link></Text>

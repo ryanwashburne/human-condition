@@ -1,29 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Section, Text, Img, Link, Bar, Item } from '../components'
-
-class Slider extends React.Component {
-  state = {
-    count: 0
-  }
-  componentDidMount() {
-    this.interval = setInterval(() => this.setState({ count: this.state.count + 1 }), 2000);
-  }
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-  render() {
-    const { data } = this.props
-    return (
-      <div>
-        {data.images.edges.map((img, i) => (
-          <Img key={i} fluid={img.node.childImageSharp.fluid} className={`w-100 ${this.state.count % 5 === i ? 'd-block' : 'd-none'}`} style={{ height: 'calc(20vw + 100px)' }} />
-        ))}
-      </div>
-    )
-  }
-}
+import { Layout, Section, Text, Img, Link, Item, Button } from '../components'
 
 const IndexPage = ({ data }) => {
   const articles = data.articles.edges
@@ -36,8 +14,21 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+      <Section yGutter>
+        <div className="row">
+          <div className="col-12 col-md-6 col-lg-5 mx-auto">
+            <Text variant="h6" gutterBottom>
+              <Link to={`/issues/${issue.number}`}>Issue #{issue.number}</Link>
+            </Text>
+            <Img fluid={issue.cover.fluid} className="w-100 mb-4" style={{ border: '1px solid #1d191b' }} to={`/issue/${issue.number}`} />
+            <Text>
+              {issue.description.childMarkdownRemark.rawMarkdownBody}
+            </Text>
+          </div>
+        </div>
+      </Section>
 
-      <Slider data={data} />
+      <hr className="mx-auto" style={{ width: '50%', borderColor: '#1d191b' }}/>
 
       <Section yGutter>
         <div className="row">
@@ -69,24 +60,9 @@ const IndexPage = ({ data }) => {
               }
               return null
             })}
-          </div>
-        </div>
-      </Section>
-
-      <Bar />
-
-      <Section yGutter>
-        <div className="row">
-          <div className="col-12 col-lg-6">
-            <Text variant="h6" gutterBottom>
-              <Link to={`/issues/${issue.number}`}>Issue #{issue.number}</Link>
-            </Text>
-            <Text color="textSecondary" paragraph>
-              {issue.description.childMarkdownRemark.rawMarkdownBody}
-            </Text>
-          </div>
-          <div className="col-12 col-lg-6">
-            <Img fluid={issue.cover.fluid} className="w-100" style={{ height: 400 }} to={`/issue/${issue.number}`} />
+            <Link to="/articles">
+              <Button variant="outlined" fullWidth className="mt-4">View all articles</Button>
+            </Link>
           </div>
         </div>
       </Section>
@@ -127,21 +103,6 @@ export const query = graphql`
           cover {
             fluid(maxHeight: 800) {
               ...GatsbyContentfulFluid
-            }
-          }
-        }
-      }
-    }
-    
-    images: allFile(
-      filter: {relativePath: { regex: "/home/" }},
-      sort: { fields: name }
-    ) {
-      edges {
-        node {
-          childImageSharp {
-            fluid(maxHeight: 800) {
-              ...GatsbyImageSharpFluid
             }
           }
         }
