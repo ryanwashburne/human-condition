@@ -2,7 +2,7 @@
 .cache
 node_modules
 yarn-error.log
-.idea
+.vscode
 
 # Build directory
 /public
@@ -10,3 +10,4 @@ yarn-error.log
 
 # Secret Sauce
 .env
+.vscode

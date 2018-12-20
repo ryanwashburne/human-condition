@@ -3,6 +3,7 @@ module.exports = {
     title: 'HUMAN CONDITION',
   },
   plugins: [
+    `@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: "gatsby-source-contentful",
       options: {
@@ -31,13 +32,15 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+          `gatsby-remark-component`,
           {
-            resolve: `gatsby-remark-images`,
+            resolve: `gatsby-remark-images-contentful`,
             options: {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 800,
+              maxWidth: 550,
+              linkImagesToOriginal: false,
             },
           },
         ],
@@ -55,13 +58,6 @@ module.exports = {
       options: {
         path: `${__dirname}/src/interviews`,
         name: `interviews`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/issues`,
-        name: `issues`,
       },
     },
     {

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import { Layout, Section, Text, Bar, Item } from '../components'
 
-const Editorial = ({ data }) => (
+const Articles = ({ data }) => (
   <Layout>
     <Section yGutter>
       <div className="row">
@@ -18,9 +18,9 @@ const Editorial = ({ data }) => (
 
     <Section yGutter>
       <div className="row">
-        {data.interviews.edges.map((interview, i) => (
+        {data.articles.edges.map((article, i) => (
           <div key={i} className="col-12 col-md-6 col-lg-4">
-            <Item article={interview.node.frontmatter} gutterBottom />
+            <Item article={article.node} gutterBottom />
           </div>
         ))}
       </div>
@@ -28,30 +28,23 @@ const Editorial = ({ data }) => (
   </Layout>
 )
 
-export default Editorial
+export default Articles
 
 export const query = graphql`
   query {
-    interviews: allMarkdownRemark(
-      filter: { frontmatter: { path: { regex: "/interviews/"}}},
-      sort: { fields: [frontmatter___date], order: DESC },
-     ) {
+    articles: allContentfulArticle(sort: { fields: [date], order: DESC }) {
       edges {
         node {
-          frontmatter {
-            title
-            path
-            date
-            caption
-            type
-            cover {
-              childImageSharp {
-                fluid(maxHeight: 400) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+          title
+          type
+          slug
+          cover {
+            fluid(maxHeight: 800) {
+              ...GatsbyContentfulFluid
             }
           }
+          caption
+          date
         }
       }
     }

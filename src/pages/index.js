@@ -26,9 +26,14 @@ class Slider extends React.Component {
 }
 
 const IndexPage = ({ data }) => {
-  const interviews = data.interviews.edges
-  const recent = data.recent.edges[0].node.frontmatter
-  const recentIssue = data.recentIssue.edges[0].node.frontmatter
+  const articles = data.articles.edges
+
+  // Most recent article
+  const recent = articles[0].node
+
+  // Most recent magazine issue
+  const issue = data.issue.edges[0].node
+
   return (
     <Layout>
 
@@ -38,12 +43,12 @@ const IndexPage = ({ data }) => {
         <div className="row">
           <div className="col-12 col-lg-7">
             <div className="d-none d-lg-block sticky-top">
-              <Link to={recent.path}>
-                <Img fluid={recent.cover.childImageSharp.fluid} />
+              <Link to={`/${recent.type.toLowerCase()}/${recent.slug}`}>
+                <Img fluid={recent.cover.fluid} style={{ height: 400 }} />
               </Link>
               <Text className="font-italic mt-2">{recent.type}</Text>
               <Text variant="h2" className="text-uppercase font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>
-                <Link to={recent.path}>
+                <Link to={`/${recent.type.toLowerCase()}/${recent.slug}`}>
                   {recent.title}
                 </Link>
               </Text>
@@ -56,10 +61,10 @@ const IndexPage = ({ data }) => {
             <div className="d-block d-lg-none">
               <Item article={recent} gutterBottom />
             </div>
-            {interviews.map((interview, i) => {
+            {articles.map((interview, i) => {
               if (i > 0) {
                 return (
-                  <Item key={i} article={interview.node.frontmatter} gutterBottom={i < interviews.length - 1} />
+                  <Item key={i} article={interview.node} gutterBottom={i < articles.length - 1} />
                 )
               }
               return null
@@ -74,14 +79,14 @@ const IndexPage = ({ data }) => {
         <div className="row">
           <div className="col-12 col-lg-6">
             <Text variant="h6" gutterBottom>
-              <Link to={`/issues/${recentIssue.id}`}>{recentIssue.title}</Link>
+              <Link to={`/issues/${issue.number}`}>Issue #{issue.number}</Link>
             </Text>
             <Text color="textSecondary" paragraph>
-              {recentIssue.description}
+              {issue.description.childMarkdownRemark.rawMarkdownBody}
             </Text>
           </div>
           <div className="col-12 col-lg-6">
-            <Img fluid={recentIssue.cover.childImageSharp.fluid} className="w-100" style={{ height: 400 }} to={`/issues/${recentIssue.id}`} />
+            <Img fluid={issue.cover.fluid} className="w-100" style={{ height: 400 }} to={`/issue/${issue.number}`} />
           </div>
         </div>
       </Section>
@@ -93,76 +98,41 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    recent: allMarkdownRemark(
-      filter: { frontmatter: { path: { regex: "/interviews/"}}},
-      limit: 1,
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    articles: allContentfulArticle(sort: { fields: [date], order: DESC }, limit: 5) {
       edges {
         node {
-          frontmatter {
-            title
-            path
-            date
-            caption
-            type
-            cover {
-              childImageSharp {
-                fluid(maxHeight: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
+          title
+          type
+          slug
+          cover {
+            fluid(maxHeight: 800) {
+              ...GatsbyContentfulFluid
+            }
+          }
+          caption
+          date
+        }
+      }
+    }
+
+    issue: allContentfulIssue(sort: { fields: [date], order: DESC }, limit: 1) {
+      edges {
+        node {
+          number
+          description {
+            childMarkdownRemark {
+              rawMarkdownBody
+            }
+          }
+          cover {
+            fluid(maxHeight: 800) {
+              ...GatsbyContentfulFluid
             }
           }
         }
       }
     }
-    interviews: allMarkdownRemark(
-      filter: { frontmatter: { path: { regex: "/interviews/"}}},
-      limit: 5,
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            path
-            date
-            caption
-            type
-            cover {
-              childImageSharp {
-                fluid(maxHeight: 400) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    recentIssue: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/issues/"}},
-      limit: 1,
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
-      edges {
-        node {
-          frontmatter {
-            title
-            description
-            id
-            cover {
-              childImageSharp {
-                fluid(maxHeight: 800) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    
     images: allFile(
       filter: {relativePath: { regex: "/home/" }},
       sort: { fields: name }
@@ -170,7 +140,7 @@ export const query = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(maxHeight: 900) {
+            fluid(maxHeight: 800) {
               ...GatsbyImageSharpFluid
             }
           }

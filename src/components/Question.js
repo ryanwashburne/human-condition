@@ -1,9 +1,5 @@
 import React from 'react'
 
-import { Text } from './'
-
 export default ({ children }) => (
-  <div className="col-12 col-lg-8 mx-auto">
-    <Text className="font-weight-bold" paragraph variant="subtitle1">HC: {children}</Text>
-  </div>
+  <span className="font-weight-bold d-block mb-2 pb-2" style={{ fontSize: '1.1em', fontFamily: 'Superclarendon' }}>HC: {children}</span>
 )
