@@ -15,22 +15,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Section yGutter>
-        <div className="row">
-          <div className="col-12 col-md-6 col-lg-5 mx-auto">
-            <Text variant="h6" gutterBottom>
-              <Link to={`/issues/${issue.number}`}>Issue #{issue.number}</Link>
-            </Text>
-            <Img fluid={issue.cover.fluid} className="w-100 mb-4" style={{ border: '1px solid #1d191b' }} to={`/issue/${issue.number}`} />
-            <Text>
-              {issue.description.childMarkdownRemark.rawMarkdownBody}
-            </Text>
-          </div>
-        </div>
-      </Section>
-
-      <hr className="mx-auto" style={{ width: '50%', borderColor: '#1d191b' }}/>
-
-      <Section yGutter>
+        <Text variant="subtitle1" gutterBottom align="left">Recent Articles</Text>
         <div className="row">
           <div className="col-12 col-lg-7">
             <div className="d-none d-lg-block sticky-top">
@@ -63,6 +48,22 @@ const IndexPage = ({ data }) => {
             <Link to="/articles">
               <Button variant="outlined" fullWidth className="mt-4">View all articles</Button>
             </Link>
+          </div>
+        </div>
+      </Section>
+
+      <hr className="mx-auto" style={{ width: '50%', borderColor: '#1d191b' }}/>
+
+      <Section yGutter>
+        <div className="row">
+          <div className="col-12 col-md-6 col-lg-5 mx-auto">
+            <Text variant="h6" gutterBottom>
+              <Link to={`/issues/${issue.number}`}>Issue #{issue.number}</Link>
+            </Text>
+            <Img fluid={issue.cover.fluid} className="w-100 mb-4" style={{ border: '1px solid #1d191b' }} to={`/issue/${issue.number}`} />
+            <Text>
+              {issue.description.childMarkdownRemark.rawMarkdownBody}
+            </Text>
           </div>
         </div>
       </Section>
