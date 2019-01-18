@@ -1,6 +1,5 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 
 import { AppBar, Toolbar, ButtonBase, Drawer, List, ListItem } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -22,7 +21,7 @@ class Header extends React.Component {
     const { open } = this.state
     return (
       <div>
-        <AppBar position="fixed" color="inherit" style={{ height: HEIGHT, boxShadow: 'none', backgroundColor: '#f8f6ed' }}>
+        <AppBar position="fixed" color="inherit" style={{ height: HEIGHT, boxShadow: 'none', borderBottom: '1px solid #1d191b', backgroundColor: '#f8f6ed' }}>
           <Toolbar variant="dense" style={{ height: HEIGHT }}>
             <div className="container-fluid">
               <div className="row">
@@ -42,7 +41,7 @@ class Header extends React.Component {
                     `}
                     render={data => (
                       <Link to="/">
-                        <Img fixed={data.file.childImageSharp.fixed} style={{ marginTop: 5, marginLeft: -10 }} />
+                        <img src={data.file.childImageSharp.fixed.src} style={{ marginLeft: -10 }} alt="logo" />
                       </Link>
                     )}
                   />
