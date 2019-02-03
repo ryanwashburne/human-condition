@@ -2,6 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
+import {
+  NewWave,
+  NewWave2,
+} from '../custom'
+
 import ArticleLayoutContentful from '../components/ArticleLayoutContentful'
 
 import rehypeReact from 'rehype-react'
@@ -30,12 +35,28 @@ const renderAst = new rehypeReact({
 
 class ArticleTemplate extends React.Component {
   render() {
-    const { data } = this.props
+    const { data, pageContext } = this.props
     const article = data.contentfulArticle
+
+    let content
+    switch (pageContext.slug) {
+      case 'new-wave':
+        content = <NewWave />
+        break
+      
+      case 'new-wave-2':
+        content = <NewWave2 />
+        break
+
+      default:
+        content = renderAst(article.content.childMarkdownRemark.htmlAst)
+        break
+    }
+
     return (
       <ArticleLayoutContentful {...article}>
         <Helmet title={`${article.title.toUpperCase()} / HUMAN CONDITION`} />
-        {renderAst(article.content.childMarkdownRemark.htmlAst)}
+        {content}
       </ArticleLayoutContentful>
     )
   }

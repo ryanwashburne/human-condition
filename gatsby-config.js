@@ -1,3 +1,18 @@
+let contentfulConfig
+
+try {
+  // Load the Contentful config from the .contentful.json
+  contentfulConfig = require('./.contentful')
+  contentfulConfig = contentfulConfig[process.env.NODE_ENV === 'production' ? 'production' : 'development']
+} catch (_) {}
+
+// Overwrite the Contentful config with environment variables if they exist
+contentfulConfig = {
+  spaceId: process.env.CONTENTFUL_SPACE_ID || contentfulConfig.spaceId,
+  accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN || contentfulConfig.accessToken,
+  ...contentfulConfig
+}
+
 module.exports = {
   siteMetadata: {
     title: 'HUMAN CONDITION',
@@ -6,10 +21,7 @@ module.exports = {
     `@contentful/gatsby-transformer-contentful-richtext`,
     {
       resolve: "gatsby-source-contentful",
-      options: {
-        spaceId: `mcc9em3lbxey`,
-        accessToken: `5cb3210278629e6dad812ff7256f41287f7a25830fc0e3992df8b091c429fbbe`
-      }
+      options: contentfulConfig
     },
     {
       resolve: `gatsby-plugin-google-analytics`,

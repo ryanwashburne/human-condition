@@ -39,8 +39,7 @@
   ],
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "export GATSBY_CONTENTFUL_RICH_TEXT='enabled' && npm run develop",
+    "start": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lambda": "netlify-lambda serve src/functions"

@@ -2,7 +2,8 @@ import React from 'react'
 
 import { Layout, Text, Img, Section, TextBlob } from './'
 
-export default ({ title, caption, src, interview, date, photography, videography, description, children, cover }) => {
+export default ({ title, caption, interviewer, writer, date, photographer, videographer, description, children, cover }) => {
+  console.log(cover)
   return (
     <Layout>
       <div className="container-fluid">
@@ -15,9 +16,10 @@ export default ({ title, caption, src, interview, date, photography, videography
               <Text gutterBottom className="font-italic">{date}</Text>
             </div>
             <div>
-              {interview && <Text className="font-italic" gutterBottom>Interview: {interview}</Text>}
-              {photography && <Text className="font-italic" gutterBottom>Photography: {photography}</Text>}
-              {videography && <Text className="font-italic" gutterBottom>Videography: {videography}</Text>}
+              {interviewer && <Text className="font-italic" gutterBottom>Interview: {interviewer}</Text>}
+              {writer && <Text className="font-italic" gutterBottom>Writer: {writer}</Text>}
+              {photographer && <Text className="font-italic" gutterBottom>Photography: {photographer}</Text>}
+              {videographer && <Text className="font-italic" gutterBottom>Videography: {videographer}</Text>}
             </div>
           </div>
 
@@ -26,10 +28,11 @@ export default ({ title, caption, src, interview, date, photography, videography
               <Text variant="h4" className="text-uppercase">{title}</Text>
               <Text variant="subtitle1" gutterBottom>{caption}</Text>
               <Text className="font-italic">{date}</Text>
-              <div className="mt-4">
-                {interview && <Text className="font-italic" gutterBottom>Interview: {interview}</Text>}
-                {photography && <Text className="font-italic" gutterBottom>Photography: {photography}</Text>}
-                {videography && <Text className="font-italic" gutterBottom>Videography: {videography}</Text>}
+              <div className="mt-5">
+                {interviewer && <Text className="font-italic" gutterBottom>Interview: {interviewer}</Text>}
+                {writer && <Text className="font-italic" gutterBottom>Writer: {writer}</Text>}
+                {photographer && <Text className="font-italic" gutterBottom>Photography: {photographer}</Text>}
+                {videographer && <Text className="font-italic" gutterBottom>Videography: {videographer}</Text>}
               </div>
             </Section>
           </div>
@@ -44,11 +47,7 @@ export default ({ title, caption, src, interview, date, photography, videography
           </div>
         </div>
       </div>
-      <Section>
-        <div className="mt-4 mt-lg-5 font-italic">
-          <TextBlob>{description}</TextBlob>
-        </div>
-      </Section>
+      <TextBlob className="mt-5 font-italic">{description && description}</TextBlob>
       {children}
     </Layout>
   )
