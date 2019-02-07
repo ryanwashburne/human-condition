@@ -43,8 +43,16 @@ const About = ({ data }) => (
           <Text>Writer</Text>
         </div>
         <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Dylan Harris</Text>
+          <Text>Content Developer</Text>
+        </div>
+        <div className="col-12 col-lg-6 mb-5">
           <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Negin Shahbazi</Text>
           <Text>Videographer</Text>
+        </div>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Aidan Galassetti</Text>
+          <Text>Photographer/videographer</Text>
         </div>
         <div className="col-12 col-lg-6 mb-5">
           <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Liam Brozik</Text>
@@ -75,6 +83,10 @@ const About = ({ data }) => (
         <div className="col-12 col-lg-6 mb-5">
           <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>The Elliott Bay Book Company</Text>
           <Text>1521 10th Ave, Seattle, WA 98122</Text>
+        </div>
+        <div className="col-12 col-lg-6 mb-5">
+          <Text variant="h6" style={{ fontFamily: 'Times New Roman' }}>Hood Famous Bakeshop</Text>
+          <Text>2325½ NW Market St, Seattle, WA 98107</Text>
         </div>
       </div>
     </Section>
