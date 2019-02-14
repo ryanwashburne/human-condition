@@ -25,7 +25,7 @@ const styles = (theme) => ({
 const Link = ({ classes, className, href, children, ...props }) => {
   if (href) {
     return (
-      <OutboundLink href={href} className={classnames(classes.link, classes.hover, className)} {...props} >{children}</OutboundLink>
+      <OutboundLink href={href} className={classnames(classes.link, classes.hover, className)} {...props}>{children}</OutboundLink>
     )
   }
   return (

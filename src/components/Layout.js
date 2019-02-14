@@ -56,7 +56,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div style={{ backgroundColor: '#f8f6ed', color: '#'}}>
+      <div style={{ backgroundColor: '#f8f6ed' }}>
         <MuiThemeProvider theme={theme}>
           <Helmet
             title={data.site.siteMetadata.title}

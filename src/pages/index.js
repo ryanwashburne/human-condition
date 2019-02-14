@@ -20,7 +20,7 @@ const IndexPage = ({ data }) => {
           <div className="col-12 col-lg-7">
             <div className="d-none d-lg-block sticky-top">
               <Link to={`/${recent.type.toLowerCase()}/${recent.slug}`}>
-                <Img fluid={recent.cover.fluid} style={{ height: 400 }} />
+                <Img hover fluid={recent.cover.fluid} style={{ height: 400 }} />
               </Link>
               <Text className="font-italic mt-2">{recent.type}</Text>
               <Text variant="h2" className="text-uppercase font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>
