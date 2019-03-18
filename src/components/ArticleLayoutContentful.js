@@ -46,7 +46,9 @@ export default ({ title, caption, interviewer, writer, date, photographer, video
           </div>
         </div>
       </div>
-      <TextBlob className="mt-5 font-italic">{description && description.childMarkdownRemark.rawMarkdownBody}</TextBlob>
+
+      <div className="mt-5" />
+      {description && <TextBlob className="font-italic" dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />}
       {children}
     </Layout>
   )

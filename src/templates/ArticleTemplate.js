@@ -23,13 +23,18 @@ const Frame = ({ children }) => {
   )
 }
 
+const FullPhoto = ({ children }) => {
+  return <img src={children[0]} className="w-100 mb-5" style={{ height: '80vh', objectFit: 'cover' }} alt="" />
+}
+
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
     p: TextBlob, 
     strong: Question,
     blockquote: Quote,
-    'embedded': Frame
+    'embedded': Frame,
+    'full-photo': FullPhoto,
   }
 }).Compiler
 
@@ -76,7 +81,7 @@ export const pageQuery = graphql`
       }
       description {
         childMarkdownRemark {
-          rawMarkdownBody
+          html
         }
       }
       content {
