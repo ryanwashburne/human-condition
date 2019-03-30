@@ -13,7 +13,7 @@ const Question = ({ children }) => (
 const Content = ({ name, type, ig, children }) => (
   <Section>
     <div className="mt-4 mb-5">
-      <Text variant="title" align="center">{name}{type && `   //   ${type}`}</Text>
+      <Text variant="h6" align="center">{name}{type && `   //   ${type}`}</Text>
       <div className="mb-4">
         {typeof(ig) === 'object' && ig.map((acct, i) => (
           <Text align="center" key={i}><Link href={`https://instagram.com/${acct}`}>@{acct}</Link></Text>

@@ -49,8 +49,8 @@ class NewWave2 extends React.Component {
                 <div className="row">
                   {People.map((person, i) => (
                     <div key={i} className="col-12 col-sm-6 col-lg-4 mb-5 text-center">
-                      <div onClick={() => this.handleOpen(person)}>
-                        <Img fluid={photos[`${person.id.toLowerCase()}-profile`].fluid} style={{ height: 400 }} />
+                      <div onClick={() => this.handleOpen(person)} style={{ cursor: 'pointer' }}>
+                        <Img fluid={photos[`${person.id.toLowerCase()}-profile`].fluid} style={{ height: 450 }} />
                       </div>
                       <Text align="center" variant="subtitle1" className="mt-2">{person.name}</Text>
                     </div>
@@ -63,15 +63,15 @@ class NewWave2 extends React.Component {
                   open={!!person}
                   handleClose={this.handleClose}
                   actions={[
-                    <Button onClick={this.handleClose} className="san-serif">Close</Button>
+                    <Button onClick={this.handleClose} className="san-serif" key={0}>Close</Button>
                   ]}
                 >
                   <div className="row no-gutters">
                     <div className="col-12 col-lg-6 text-center text-lg-right px-0">
-                      <Img fluid={photos[`${person.id.toLowerCase()}-left`].fluid} style={{ height: 400 }} />
+                      <Img fluid={photos[`${person.id.toLowerCase()}-left`].fluid} style={{ height: 350 }} />
                     </div>
                     <div className="col-12 col-lg-6 text-center text-lg-left px-0">
-                      <Img fluid={photos[`${person.id.toLowerCase()}-right`].fluid} style={{ height: 400 }} />
+                      <Img fluid={photos[`${person.id.toLowerCase()}-right`].fluid} style={{ height: 350 }} />
                     </div>
                   </div>
                   {person.content}
