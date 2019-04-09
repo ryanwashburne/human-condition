@@ -20,11 +20,13 @@ ex:
   "development":{  
      "host": "preview.contentful.com",
      "spaceId": "SPACE_ID",
-     "accessToken": "DEV_ACCESS_TOKEN"
+     "accessToken": "DEV_ACCESS_TOKEN",
+     "managementToken": "<OPTIONAL> MANAGEMENT_ACCESS_TOKEN"
   },
   "production": {  
     "spaceId": "SPACE_ID",
-    "accessToken": "PROD_ACCESS_TOKEN"
+    "accessToken": "PROD_ACCESS_TOKEN",
+    "managementToken": "<OPTIONAL> MANAGEMENT_ACCESS_TOKEN"
   }
 }
 ```

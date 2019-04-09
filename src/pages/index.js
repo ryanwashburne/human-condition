@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Section, Text, Img, Link, Item, Button } from '../components'
+import { Section, Text, Img, Link, Item, Button } from '../components'
 
 const IndexPage = ({ data }) => {
   const articles = data.articles.edges
@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
   const issue = data.issue.edges[0].node
 
   return (
-    <Layout>
+    <>
       <Section yGutter>
         <Text variant="subtitle1" gutterBottom align="left">Recent Articles</Text>
         <div className="row">
@@ -67,7 +67,7 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </Section>
-    </Layout>
+    </>
   )
 }
 

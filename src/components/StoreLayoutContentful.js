@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Layout, Section, Text, Img, Checkout } from './'
+import { Section, Text, Img, Checkout } from './'
 
 export default ({ number, price, description, cover, sku, children }) => (
-  <Layout>
+  <>
     <Section>
       <div className="row">
         <div className="col-12 col-lg-6 h-100">
@@ -37,5 +37,5 @@ export default ({ number, price, description, cover, sku, children }) => (
       </div>
     </Section>
     {children}
-  </Layout>
+  </>
 )

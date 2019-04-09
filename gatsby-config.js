@@ -13,6 +13,13 @@ contentfulConfig = {
   ...contentfulConfig
 }
 
+const { spaceId, accessToken } = contentfulConfig
+if (!spaceId || !accessToken) {
+  throw new Error(
+    'Contentful spaceId and the delivery token need to be provided.'
+  )
+}
+
 module.exports = {
   siteMetadata: {
     title: 'HUMAN CONDITION',
@@ -20,7 +27,7 @@ module.exports = {
   plugins: [
     `@contentful/gatsby-transformer-contentful-richtext`,
     {
-      resolve: "gatsby-source-contentful",
+      resolve: 'gatsby-source-contentful',
       options: contentfulConfig
     },
     {
@@ -35,6 +42,7 @@ module.exports = {
         respectDNT: true,
       },
     },
+    'gatsby-plugin-netlify',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-stripe-checkout',
     'gatsby-transformer-sharp',

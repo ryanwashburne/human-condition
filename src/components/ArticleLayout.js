@@ -1,11 +1,10 @@
 import React from 'react'
 
-import { Layout, Text, Img, Section, TextBlob } from './'
+import { Text, Img, Section, TextBlob } from './'
 
 export default ({ title, caption, interviewer, writer, date, photographer, videographer, description, children, cover }) => {
-  console.log(cover)
   return (
-    <Layout>
+    <>
       <div className="container-fluid">
         <div className="row">
 
@@ -49,6 +48,6 @@ export default ({ title, caption, interviewer, writer, date, photographer, video
       </div>
       <TextBlob className="mt-5 font-italic">{description && description}</TextBlob>
       {children}
-    </Layout>
+    </>
   )
 }

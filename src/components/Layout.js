@@ -8,6 +8,7 @@ import './layout.css'
 
 import Header from './Header'
 import Footer from './Footer'
+import Transition from './Transition'
 
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 const theme = createMuiTheme({
@@ -44,7 +45,7 @@ const theme = createMuiTheme({
   }
 })
 
-const Layout = ({ children }) => (
+export default ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -56,7 +57,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <div style={{ backgroundColor: '#f8f6ed' }}>
+      <div style={{ backgroundColor: '#f8f6ed', minHeight: '100vh' }}>
         <MuiThemeProvider theme={theme}>
           <Helmet
             title={data.site.siteMetadata.title}
@@ -68,14 +69,12 @@ const Layout = ({ children }) => (
             <html lang="en" />
           </Helmet>
           <Header />
-          <main>
+          <Transition location={location}>
             {children}
-          </main>
+          </Transition>
           <Footer />
         </MuiThemeProvider>
       </div>
     )}
   />
 )
-
-export default Layout

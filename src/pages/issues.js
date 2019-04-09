@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Section, Img, Text, Bar } from '../components'
+import { Section, Img, Text, Bar } from '../components'
 
 
 class StorePage extends React.Component {
@@ -10,7 +10,7 @@ class StorePage extends React.Component {
     const issues = data.issues.edges
     const recent = issues[0].node
     return (
-      <Layout>
+      <>
         <Section yGutter>
           <div className="row">
             <div className="col-12 col-lg-6 mx-auto">
@@ -37,7 +37,7 @@ class StorePage extends React.Component {
             })}
           </div>
         </Section>
-      </Layout>
+      </>
     )
   }
 }

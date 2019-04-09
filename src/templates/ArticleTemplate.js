@@ -54,7 +54,6 @@ class ArticleTemplate extends React.Component {
         break
 
       default:
-        console.log(article.content.childMarkdownRemark.htmlAst)
         content = renderAst(article.content.childMarkdownRemark.htmlAst)
         break
     }

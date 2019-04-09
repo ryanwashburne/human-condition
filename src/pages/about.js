@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import { Layout, Link, Section, Img, Text, Bar } from '../components'
+import { Link, Section, Img, Text, Bar } from '../components'
 
 const About = ({ data }) => (
-  <Layout>
+  <>
     <Section yGutter>
       <div className="row">
         <div className="col-12 col-lg-6 mb-4 mb-lg-0">
@@ -90,7 +90,7 @@ const About = ({ data }) => (
         </div>
       </div>
     </Section>
-  </Layout>
+  </>
 )
 
 export default About

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Layout, Text, Img, Section, TextBlob } from './'
+import { Text, Img, Section, TextBlob } from './'
 
 export default ({ title, caption, interviewer, writer, date, photographer, videographer, description, children, cover }) => {
   return (
-    <Layout>
+    <>
       <div className="container-fluid">
         <div className="row">
 
@@ -50,6 +50,6 @@ export default ({ title, caption, interviewer, writer, date, photographer, video
       <div className="mt-5" />
       {description && <TextBlob className="font-italic" dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />}
       {children}
-    </Layout>
+    </>
   )
 }

@@ -24,3 +24,5 @@ export { default as Bar } from './Bar'
 export { default as IFrame } from './IFrame'
 
 export { default as Item } from './Item'
+
+export { default as Transition } from './Transition'
