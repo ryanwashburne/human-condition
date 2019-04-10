@@ -19,12 +19,12 @@ const IndexPage = ({ data }) => {
         <div className="row">
           <div className="col-12 col-lg-7">
             <div className="d-none d-lg-block sticky-top">
-              <Link to={`/${recent.type.toLowerCase()}/${recent.slug}`}>
+              <Link to={`/${recent.type.toLowerCase()}/${recent.slug}/`}>
                 <Img hover fluid={recent.cover.fluid} style={{ height: 400 }} />
               </Link>
               <Text className="font-italic mt-2">{recent.type}</Text>
               <Text variant="h2" className="text-uppercase font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>
-                <Link to={`/${recent.type.toLowerCase()}/${recent.slug}`}>
+                <Link to={`/${recent.type.toLowerCase()}/${recent.slug}/`}>
                   {recent.title}
                 </Link>
               </Text>
@@ -45,7 +45,7 @@ const IndexPage = ({ data }) => {
               }
               return null
             })}
-            <Link to="/articles">
+            <Link to="/articles/">
               <Button variant="outlined" fullWidth className="mt-4">View all articles</Button>
             </Link>
           </div>
@@ -58,7 +58,7 @@ const IndexPage = ({ data }) => {
         <div className="row">
           <div className="col-12 col-md-6 col-lg-5 mx-auto">
             <Text variant="h6" gutterBottom>
-              <Link to={`/issues/${issue.number}`}>Issue #{issue.number}</Link>
+              <Link to={`/issues/${issue.number}/`}>Issue #{issue.number}</Link>
             </Text>
             <Img fluid={issue.cover.fluid} className="w-100 mb-4" style={{ border: '1px solid #1d191b' }} to={`/issue/${issue.number}`} />
             <Text>

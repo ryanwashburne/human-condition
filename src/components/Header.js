@@ -28,7 +28,7 @@ class Header extends React.Component {
                   <Text style={{ fontFamily: 'Human' }} variant="h5" color="textPrimary"><Link to="/">HUMAN CONDITION</Link></Text>
                 </div>
                 <div className="col-6 d-none d-lg-flex align-items-center justify-content-end">
-                  <Text><Link to="/articles">Articles</Link></Text>
+                  <Text><Link to="/articles/">Articles</Link></Text>
                   <Text className="ml-4"><Link to="/about">About</Link></Text>
                   <Text className="ml-4"><Link to="/issues">Issues</Link></Text>
                 </div>
@@ -43,17 +43,17 @@ class Header extends React.Component {
         </AppBar>
         <Drawer anchor="right" open={open} onClose={this.handleClose}>
           <List component="nav" style={{ width: 250 }}>
-            <Link to="/articles">
+            <Link to="/articles/">
               <ListItem button>
                 Articles
               </ListItem>
             </Link>
-            <Link to="/about">
+            <Link to="/about/">
               <ListItem button>
                 About
               </ListItem>
             </Link>
-            <Link to="/issues">
+            <Link to="/issues/">
               <ListItem button>
                 Issues
               </ListItem>
