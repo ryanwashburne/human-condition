@@ -4,7 +4,7 @@ import { Section, Text, Img, Checkout } from './'
 
 export default ({ number, price, description, cover, sku, children }) => (
   <>
-    <Section>
+    <Section yGutter>
       <div className="row">
         <div className="col-12 col-lg-6 h-100">
           <Section yGutter fluid>
@@ -32,7 +32,7 @@ export default ({ number, price, description, cover, sku, children }) => (
           </Section>
         </div>
         <div className="col-12 col-lg-6">
-          <Img fluid={cover.fluid} />
+          <Img fluid={cover.fluid} style={{ border: '1px solid #1d191b' }} />
         </div>
       </div>
     </Section>

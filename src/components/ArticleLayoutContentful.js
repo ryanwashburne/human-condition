@@ -1,8 +1,17 @@
 import React from 'react'
 
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  PinterestShareButton,
+  PinterestIcon,
+} from 'react-share'
+
 import { Text, Img, Section, TextBlob } from './'
 
-export default ({ title, caption, interviewer, writer, date, photographer, videographer, description, children, cover }) => {
+export default ({ type, slug, title, caption, interviewer, writer, date, photographer, videographer, description, children, cover }) => {
   return (
     <>
       <div className="container-fluid">
@@ -20,6 +29,11 @@ export default ({ title, caption, interviewer, writer, date, photographer, video
               {photographer && <Text className="font-italic" gutterBottom>Photography: {photographer}</Text>}
               {videographer && <Text className="font-italic" gutterBottom>Videography: {videographer}</Text>}
             </div>
+            <div className="d-flex mt-2">
+              <FacebookShareButton url={`https://humanconditionmag.com/${type}/${slug}/`}><FacebookIcon size={32} round /></FacebookShareButton>
+              <TwitterShareButton url={`https://humanconditionmag.com/${type}/${slug}/`}><TwitterIcon size={32} round /></TwitterShareButton>
+              <PinterestShareButton url={`https://humanconditionmag.com/${type}/${slug}/`} media={cover.src}><PinterestIcon size={32} round /></PinterestShareButton>
+            </div>
           </div>
 
           <div className="d-block d-lg-none col-12">
@@ -32,6 +46,11 @@ export default ({ title, caption, interviewer, writer, date, photographer, video
                 {writer && <Text className="font-italic" gutterBottom>Writer: {writer}</Text>}
                 {photographer && <Text className="font-italic" gutterBottom>Photography: {photographer}</Text>}
                 {videographer && <Text className="font-italic" gutterBottom>Videography: {videographer}</Text>}
+              </div>
+              <div className="d-flex mt-2">
+                <FacebookShareButton url={`https://humanconditionmag.com/${type}/${slug}/`}><FacebookIcon size={32} round /></FacebookShareButton>
+                <TwitterShareButton url={`https://humanconditionmag.com/${type}/${slug}/`}><TwitterIcon size={32} round /></TwitterShareButton>
+                <PinterestShareButton url={`https://humanconditionmag.com/${type}/${slug}/`} media={cover.src}><PinterestIcon size={32} round /></PinterestShareButton>
               </div>
             </Section>
           </div>
@@ -49,7 +68,9 @@ export default ({ title, caption, interviewer, writer, date, photographer, video
 
       <div className="mt-5" />
       {description && <TextBlob className="font-italic" dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />}
-      {children}
+      <>
+        {children}
+      </>
     </>
   )
 }

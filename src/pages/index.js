@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import Fade from 'react-reveal/Fade'
 import { Section, Text, Img, Link, Item, Button } from '../components'
 
 const IndexPage = ({ data }) => {
@@ -14,37 +15,55 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
+      {/* <Section yGutter className="text-center">
+        <Text variant="h1" gutterBottom className="d-none d-md-block">Human Condition Magazine</Text>
+        <Text variant="h2" gutterBottom className="d-block d-md-none">Human Condition Magazine</Text>
+        <Link to={`/issue/${issue.number}/`}>
+          <Button variant="outlined">View Latest Issue</Button>
+        </Link>
+      </Section>
+      
+      <hr className="mx-auto" style={{ width: '50%', borderColor: '#1d191b' }}/> */}
+
       <Section yGutter>
         <Text variant="subtitle1" gutterBottom align="left">Recent Articles</Text>
         <div className="row">
           <div className="col-12 col-lg-7">
-            <div className="d-none d-lg-block sticky-top">
-              <Link to={`/${recent.type.toLowerCase()}/${recent.slug}/`}>
-                <Img hover fluid={recent.cover.fluid} style={{ height: 400 }} />
-              </Link>
-              <Text className="font-italic mt-2">{recent.type}</Text>
-              <Text variant="h2" className="text-uppercase font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>
+            <Fade>
+              <div className="d-none d-lg-block sticky-top">
                 <Link to={`/${recent.type.toLowerCase()}/${recent.slug}/`}>
-                  {recent.title}
+                  <Img hover fluid={recent.cover.fluid} style={{ height: 400, border: '1px solid #1d191b' }} />
                 </Link>
-              </Text>
-              <Text variant="subtitle1" style={{ fontFamily: 'Times New Roman' }}>
-                {recent.caption}
-              </Text>
-            </div>
+                <Text className="font-italic mt-2">{recent.type}</Text>
+                <Text variant="h2" className="text-uppercase font-weight-bold" color="textPrimary" style={{ fontFamily: 'Times New Roman' }}>
+                  <Link to={`/${recent.type.toLowerCase()}/${recent.slug}/`}>
+                    {recent.title}
+                  </Link>
+                </Text>
+                <Text variant="subtitle1" style={{ fontFamily: 'Times New Roman' }}>
+                  {recent.caption}
+                </Text>
+              </div>
+            </Fade>
           </div>
           <div className="col-12 col-lg-5">
-            <div className="d-block d-lg-none">
-              <Item article={recent} gutterBottom />
-            </div>
-            {articles.map((interview, i) => {
-              if (i > 0) {
-                return (
-                  <Item key={i} article={interview.node} gutterBottom={i < articles.length - 1} />
-                )
-              }
-              return null
-            })}
+            <Fade right cascade distance="100px">
+              <div>
+                <div className="d-block d-lg-none">
+                  <Item article={recent} gutterBottom />
+                </div>
+                {articles.map((interview, i) => {
+                  if (i > 0) {
+                    return (
+                      <div>
+                        <Item key={i} article={interview.node} gutterBottom={i < articles.length - 1} />
+                      </div>
+                    )
+                  }
+                  return null
+                })}
+              </div>
+            </Fade>
             <Link to="/articles/">
               <Button variant="outlined" fullWidth className="mt-4">View all articles</Button>
             </Link>
@@ -58,9 +77,11 @@ const IndexPage = ({ data }) => {
         <div className="row">
           <div className="col-12 col-md-6 col-lg-5 mx-auto">
             <Text variant="h6" gutterBottom>
-              <Link to={`/issues/${issue.number}/`}>Issue #{issue.number}</Link>
+              <Link to={`/issue/${issue.number}/`}>Issue #{issue.number}</Link>
             </Text>
-            <Img fluid={issue.cover.fluid} className="w-100 mb-4" style={{ border: '1px solid #1d191b' }} to={`/issue/${issue.number}`} />
+            <Fade bottom distance="30px" delay={100}>
+              <Img fluid={issue.cover.fluid} className="w-100 mb-4" style={{ border: '1px solid #1d191b' }} to={`/issue/${issue.number}`} />
+            </Fade>
             <Text>
               {issue.description.childMarkdownRemark.rawMarkdownBody}
             </Text>
