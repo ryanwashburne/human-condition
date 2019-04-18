@@ -30,9 +30,9 @@ export default ({ type, slug, title, caption, interviewer, writer, date, photogr
               {videographer && <Text className="font-italic" gutterBottom>Videography: {videographer}</Text>}
             </div>
             <div className="d-flex mt-2">
-              <FacebookShareButton url={`https://humanconditionmag.com/${type}/${slug}/`}><FacebookIcon size={32} round /></FacebookShareButton>
-              <TwitterShareButton url={`https://humanconditionmag.com/${type}/${slug}/`}><TwitterIcon size={32} round /></TwitterShareButton>
-              <PinterestShareButton url={`https://humanconditionmag.com/${type}/${slug}/`} media={cover.src}><PinterestIcon size={32} round /></PinterestShareButton>
+              <FacebookShareButton url={`https://humanconditionmag.com/${type.toLowerCase()}/${slug}/`}><FacebookIcon size={32} round /></FacebookShareButton>
+              <TwitterShareButton url={`https://humanconditionmag.com/${type.toLowerCase()}/${slug}/`}><TwitterIcon size={32} round /></TwitterShareButton>
+              <PinterestShareButton url={`https://humanconditionmag.com/${type.toLowerCase()}/${slug}/`} media={cover.fluid.src}><PinterestIcon size={32} round /></PinterestShareButton>
             </div>
           </div>
 
@@ -48,9 +48,9 @@ export default ({ type, slug, title, caption, interviewer, writer, date, photogr
                 {videographer && <Text className="font-italic" gutterBottom>Videography: {videographer}</Text>}
               </div>
               <div className="d-flex mt-2">
-                <FacebookShareButton url={`https://humanconditionmag.com/${type}/${slug}/`}><FacebookIcon size={32} round /></FacebookShareButton>
-                <TwitterShareButton url={`https://humanconditionmag.com/${type}/${slug}/`}><TwitterIcon size={32} round /></TwitterShareButton>
-                <PinterestShareButton url={`https://humanconditionmag.com/${type}/${slug}/`} media={cover.src}><PinterestIcon size={32} round /></PinterestShareButton>
+                <FacebookShareButton url={`https://humanconditionmag.com/${type.toLowerCase()}/${slug}/`}><FacebookIcon size={32} round /></FacebookShareButton>
+                <TwitterShareButton url={`https://humanconditionmag.com/${type.toLowerCase()}/${slug}/`}><TwitterIcon size={32} round /></TwitterShareButton>
+                <PinterestShareButton url={`https://humanconditionmag.com/${type.toLowerCase()}/${slug}/`} media={cover.fluid.src}><PinterestIcon size={32} round /></PinterestShareButton>
               </div>
             </Section>
           </div>
