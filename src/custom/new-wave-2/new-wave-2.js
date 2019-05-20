@@ -68,10 +68,10 @@ class NewWave2 extends React.Component {
                 >
                   <div className="row no-gutters">
                     <div className="col-12 col-lg-6 text-center text-lg-right px-0">
-                      <Img fluid={photos[`${person.id.toLowerCase()}-left`].fluid} style={{ height: 350 }} />
+                      <Img fluid={photos[`${person.id.toLowerCase()}-left`].fluid} style={{ height: 350 }} fadeIn={false} />
                     </div>
                     <div className="col-12 col-lg-6 text-center text-lg-left px-0">
-                      <Img fluid={photos[`${person.id.toLowerCase()}-right`].fluid} style={{ height: 350 }} />
+                      <Img fluid={photos[`${person.id.toLowerCase()}-right`].fluid} style={{ height: 350 }} fadeIn={false} />
                     </div>
                   </div>
                   {person.content}

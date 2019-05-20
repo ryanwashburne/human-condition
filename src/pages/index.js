@@ -54,11 +54,7 @@ const IndexPage = ({ data }) => {
                 </div>
                 {articles.map((interview, i) => {
                   if (i > 0) {
-                    return (
-                      <div>
-                        <Item key={i} article={interview.node} gutterBottom={i < articles.length - 1} />
-                      </div>
-                    )
+                    return <Item key={i} article={interview.node} gutterBottom={i < articles.length - 1} />
                   }
                   return null
                 })}

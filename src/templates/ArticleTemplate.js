@@ -7,6 +7,7 @@ import { Carousel } from 'react-responsive-carousel'
 import {
   NewWave,
   NewWave2,
+  HandPoke,
 } from '../custom'
 
 import ArticleLayoutContentful from '../components/ArticleLayoutContentful'
@@ -123,6 +124,10 @@ class ArticleTemplate extends React.Component {
       
       case 'new-wave-2':
         content = <NewWave2 />
+        break
+
+      case 'hand-poke':
+        content = <HandPoke />
         break
 
       default:
