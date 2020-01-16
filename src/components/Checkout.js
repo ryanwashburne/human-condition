@@ -66,8 +66,11 @@ class Checkout extends React.Component {
     return (
       <div>
         <Button
-          onClick={event => this.openStripeCheckout(event)}
-          disabled={this.state.disabled}
+          // onClick={event => this.openStripeCheckout(event)}
+          // disabled={this.state.disabled}
+
+          disabled // This is set to disable any payments
+
           variant="outlined"
           size="large"
           fullWidth
